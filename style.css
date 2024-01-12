@@ -1,0 +1,192 @@
+/* Styles for header and footer sections */
+.common-section {
+    height: 12vh;
+    width: 100%;
+    background-color: #eeeeee;
+}
+
+/* Search field size */
+.search-field {
+    width: 30%;
+    margin-top: -30px;
+}
+
+/* Changes the box-shadow of the input when clicked */
+.search-field .form-control:focus {
+    box-shadow: none;
+    border-color: #6c757d;
+}
+
+/* Aligns the number of results found on the left */
+#number-results-found {
+    width: 30%;
+}
+
+#number-results-found p {
+    align-self: flex-start;
+}
+
+/* Styling for subtle texts */
+.subtle-text {
+    font-size: 13px;
+    color: #a1a1a1;
+}
+
+/* Card size */
+.card {
+    width: 28.5rem;
+}
+
+/* Card header styling */
+.card-header {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Card title styling */
+.card-title {
+    color: #494949;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Disable list borders */
+.list-group-item {
+    border-color: transparent;
+}
+
+/* Style for one-column list */
+.one-column-list {
+    display: flex;
+    justify-content: center;
+}
+
+/* Style for two-column list */
+.two-column-list {
+    display: flex;
+    gap: 5%;
+}
+
+/* Style for three-column list */
+.three-column-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style for order ID */
+.order-ID {
+    color: #bd231e;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+
+/* Mobile devices */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+
+    /* Styles for header and footer sections */
+    .common-section {
+        height: 8vh;
+    }
+
+    /* Search field size */
+    .search-field {
+        width: 70%;
+    }
+
+    /* Size of the div that houses the number of results found text */
+    #number-results-found {
+        width: 70% !important;
+    }
+
+    /* Card size */
+    .card {
+        width: 19rem;
+    }
+
+    /* Card header styling */
+    .card-header {
+        display: block;
+    }
+
+    /* Card column behavior */
+    .one-column-list,
+    .two-column-list,
+    .three-column-list {
+        display: block;
+    }
+}
+
+/* iPads, Tablets */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+    /* Styles for header and footer sections */
+    .common-section {
+        height: 8vh;
+    }
+
+    /* Search field size */
+    .search-field {
+        width: 50%;
+    }
+
+    /* Size of the div that houses the number of results found text */
+    #number-results-found {
+        width: 50% !important;
+    }
+
+    /* Card size */
+    .card {
+        width: 21rem;
+    }
+
+    /* Card header styling */
+    .card-header {
+        display: block;
+    }
+
+    /* Card column behavior */
+    .one-column-list,
+    .two-column-list,
+    .three-column-list {
+        display: block;
+    }
+}
+
+/* Small screens, laptops */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    /* Styles for header and footer sections */
+    .common-section {
+        height: 9vh;
+    }
+
+    /* Search field size */
+    .search-field {
+        width: 40%;
+    }
+
+    /* Size of the div that houses the number of results found text */
+    #number-results-found {
+        width: 40% !important;
+    }
+
+    /* Card size */
+    .card {
+        width: 22rem;
+    }
+
+    /* Card header styling */
+    .card-header {
+        display: block;
+    }
+
+    /* Card column behavior */
+    .one-column-list,
+    .two-column-list,
+    .three-column-list {
+        display: block;
+    }
+}
