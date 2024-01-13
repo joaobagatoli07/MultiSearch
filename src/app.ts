@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // Serve static files from the 'layout' and 'controllers' directories
 app.use(express.static(path.join(__dirname, '../layout')));
-app.use(express.static(path.join(__dirname, '../controllers')));
+app.use(express.static(path.join(__dirname, './controllers')));
 
 // Define a route for handling requests to the root path ('/')
 app.get('/', (req, res) => {
