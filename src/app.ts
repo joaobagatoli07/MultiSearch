@@ -1,34 +1,45 @@
+// Import required modules and dependencies
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { normalizeData } from './controllers/searchController';
 
+// Create an instance of the Express application
 const app = express();
+
+// Define the port for the server to listen on
 const PORT = 3000;
 
+// Use middleware to parse incoming JSON requests
 app.use(bodyParser.json());
 
-// Adicione o middleware para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, '/')));
+// Serve static files from the 'layout' and 'controllers' directories
+app.use(express.static(path.join(__dirname, '../layout')));
+app.use(express.static(path.join(__dirname, '../controllers')));
 
-// Rota para lidar com requisições para o index.html
+// Define a route for handling requests to the root path ('/')
 app.get('/', (req, res) => {
+  // Send the 'index.html' file when the root path is accessed
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/api/search', async (req: Request, res: Response) => {
+// Define a route for handling POST requests to '/api/search'
+app.post('/api/search', async (req: Request, res: Response) => {
   try {
-    const searchText = req.query.text as string;
+    // Extract the search text from the request body
+    const searchText = req.body.text as string; 
+
+    // Call the 'normalizeData' function with the search text and send the results as a JSON response
     const results = await normalizeData(searchText);
     res.json(results);
   } catch (error) {
     console.error(error);
+    // Handle errors by logging them to the console and sending a 500 Internal Server Error response
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+// Start the server and listen on the specified port
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
-
-

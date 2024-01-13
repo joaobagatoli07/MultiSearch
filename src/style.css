@@ -8,13 +8,20 @@
 /* Search field size */
 .search-field {
     width: 30%;
-    margin-top: -30px;
+    /* margin-top: -30px; */
 }
 
 /* Changes the box-shadow of the input when clicked */
 .search-field .form-control:focus {
     box-shadow: none;
     border-color: #6c757d;
+}
+
+/* Remove button appearance from search field */
+.search-field .btn:hover{
+    background-color: white;
+    color: #6c757d;
+    cursor: default;
 }
 
 /* Aligns the number of results found on the left */
