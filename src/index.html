@@ -74,15 +74,15 @@
 
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item three-column-list" ng-repeat="order in results.salesOrders">
+                        <li class="list-group-item grid-item" ng-repeat="order in results.salesOrders">
                             <p class="order-ID mb-0" ng-bind="'#' + order.SalesOrderID"></p>
                             <p class="mb-0">{{ order.MaterialName }}</p>
-                            <p class="mb-0">Qtd: {{ order.Quantity }} pç</p>
+                            <p class="mb-0 quantity">Qtd: {{ order.Quantity }} pç</p>
                         </li>
-                        <li class="list-group-item one-column-list" ng-if="results.salesOrders.length === 0">
+                        <li class="list-group-item d-flex justify-content-center" ng-if="results.salesOrders.length === 0">
                             <p class="subtle-text mb-0">Nenhum item encontrado</p>
                         </li>
-                    </ul>
+                    </ul> 
                 </div>
             </section>
 
@@ -100,12 +100,12 @@
 
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item three-column-list" ng-repeat="order in results.purchaseOrders">
+                        <li class="list-group-item grid-item" ng-repeat="order in results.purchaseOrders">
                             <p class="order-ID mb-0" ng-bind="'#' + order.PurchaseOrderID"></p>
                             <p class="mb-0">{{ order.MaterialName }}</p>
                             <p class="mb-0">Qtd: {{ order.Quantity }} pç</p>
                         </li>
-                        <li class="list-group-item one-column-list" ng-if="results.purchaseOrders.length === 0">
+                        <li class="list-group-item d-flex justify-content-center" ng-if="results.purchaseOrders.length === 0">
                             <p class="subtle-text mb-0">Nenhum item encontrado</p>
                         </li>
                     </ul>
@@ -126,11 +126,13 @@
 
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item two-column-list" ng-repeat="product in results.products">
-                            <p class="order-ID mb-0">#{{ product.MaterialID }}</p>
-                            <p class="mb-0">{{ product.MaterialName }}</p>
+                        <li class="list-group-item grid-item-double-column" ng-repeat="product in results.products">
+                            <div class="d-flex align-items-center">
+                                <p class="order-ID mb-0 double-column">#{{ product.MaterialID }}</p>
+                                <p class="mb-0">{{ product.MaterialName }}</p>
+                            </div>
                         </li>
-                        <li class="list-group-item one-column-list" ng-if="results.products.length === 0">
+                        <li class="list-group-item d-flex justify-content-center" ng-if="results.products.length === 0">
                             <p class="subtle-text mb-0">Nenhum item encontrado</p>
                         </li>
                     </ul>
@@ -151,11 +153,13 @@
 
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item two-column-list" ng-repeat="equipment in results.equipments">
-                            <p class="order-ID mb-0">#{{ equipment.EquipmentID }}</p>
-                            <p class="mb-0">{{ equipment.EquipmentName }}</p>
+                        <li class="list-group-item grid-item-double-column" ng-repeat="equipment in results.equipments">
+                            <div class="d-flex align-items-center">
+                                <p class="order-ID mb-0 double-column">#{{ equipment.EquipmentID }}</p>
+                                <p class="mb-0">{{ equipment.EquipmentName }}</p>
+                            </div>
                         </li>
-                        <li class="list-group-item one-column-list" ng-if="results.equipments.length === 0">
+                        <li class="list-group-item d-flex justify-content-center" ng-if="results.equipments.length === 0">
                             <p class="subtle-text mb-0">Nenhum item encontrado</p>
                         </li>
                     </ul>
@@ -176,12 +180,12 @@
 
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item three-column-list" ng-repeat="worker in results.workforce">
+                        <li class="list-group-item d-flex justify-content-between" ng-repeat="worker in results.workforce">
                             <p class="order-ID mb-0">#{{ worker.WorkforceID }}</p>
                             <p class="mb-0">{{ worker.Name }}</p>
                             <p class="mb-0">{{ worker.Shift }}</p>
                         </li>
-                        <li class="list-group-item one-column-list" ng-if="results.workforce.length === 0">
+                        <li class="list-group-item d-flex justify-content-center" ng-if="results.workforce.length === 0">
                             <p class="subtle-text mb-0">Nenhum item encontrado</p>
                         </li>
                     </ul>

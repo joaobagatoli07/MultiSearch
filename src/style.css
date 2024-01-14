@@ -64,22 +64,23 @@
     border-color: transparent;
 }
 
-/* Style for one-column list */
-.one-column-list {
-    display: flex;
-    justify-content: center;
+.grid-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto; 
+    gap: 35px; 
+    align-items: center; 
 }
 
-/* Style for two-column list */
-.two-column-list {
-    display: flex;
-    gap: 5%;
+.grid-item-double-column {
+    display: grid;
+    grid-template-columns: auto 1fr; 
+    gap: 10px; 
+    align-items: center; 
 }
 
-/* Style for three-column list */
-.three-column-list {
-    display: flex;
-    justify-content: space-between;
+.double-column {
+    width: 80px;
+    margin-right: 10px; 
 }
 
 /* Style for order ID */
@@ -118,11 +119,18 @@
         display: block;
     }
 
-    /* Card column behavior */
-    .one-column-list,
-    .two-column-list,
-    .three-column-list {
-        display: block;
+    .grid-item {
+        grid-template-columns: 1fr;
+        row-gap: 0;
+    }
+
+    .grid-item-double-column {
+        flex-direction: column; 
+    }
+
+    .double-column {
+        width: auto;
+        margin-right: 0; 
     }
 }
 
@@ -153,13 +161,6 @@
     .card-header {
         display: block;
     }
-
-    /* Card column behavior */
-    .one-column-list,
-    .two-column-list,
-    .three-column-list {
-        display: block;
-    }
 }
 
 /* Small screens, laptops */
@@ -187,13 +188,6 @@
 
     /* Card header styling */
     .card-header {
-        display: block;
-    }
-
-    /* Card column behavior */
-    .one-column-list,
-    .two-column-list,
-    .three-column-list {
         display: block;
     }
 }
