@@ -14,6 +14,7 @@ const PORT = 3000;
 app.use(bodyParser.json());
 
 // Serve static files from the 'layout' and 'controllers' directories
+app.use(express.static(path.join(__dirname)));
 app.use(express.static(path.join(__dirname, '../layout')));
 app.use(express.static(path.join(__dirname, './controllers')));
 

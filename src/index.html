@@ -52,30 +52,30 @@
 
             <!-- Number of results found -->
             <div id="number-results-found">
-                <p class="subtle-text mt-4 mb-4" ng-show="totalResults > 0">
+                <p class="subtle-text mt-4 mb-0" ng-show="totalResults > 0">
                     Foram encontrados {{ totalResults }} resultado{{ totalResults !== 1 ? 's' : '' }}:
                 </p>
-                <p class="subtle-text mt-4 mb-4" ng-show="totalResults === 0">
-                    Nenhum resultado encontrado.
+                <p class="subtle-text mt-4 mb-0" ng-show="totalResults === 0">
+                    Nenhum resultado encontrado
                 </p>
             </div>
 
             <!-- "Pedidos de Venda" Section -->
-            <section class="mb-4">
+            <section class="mb-4 mt-4">
                 <div class="card">
 
                     <!-- Card header -->
                     <div class="card-header">
                         <p class="card-title mb-0">Pedidos de Venda</p>
-                        <p class="subtle-text mb-0"
-                            ng-bind-html="results.salesOrders.length || 'Nenhum' + ' item' + (results.salesOrders.length !== 1 ? 's' : '') + ' encontrado'">
+                        <p class="subtle-text mb-0" ng-if="searchText.length > 0"
+                            ng-bind-html="results.salesOrders.length !== 0 ? (results.salesOrders.length + ' itens encontrados') : 'Nenhum item encontrado'">
                         </p>
                     </div>
 
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item three-column-list" ng-repeat="order in results.salesOrders">
-                            <p class="order-ID mb-0">#{{ order.OrderID }}</p>
+                            <p class="order-ID mb-0" ng-bind="'#' + order.SalesOrderID"></p>
                             <p class="mb-0">{{ order.MaterialName }}</p>
                             <p class="mb-0">Qtd: {{ order.Quantity }} pç</p>
                         </li>
@@ -93,15 +93,15 @@
                     <!-- Card header -->
                     <div class="card-header">
                         <p class="card-title mb-0">Pedidos de Compra</p>
-                        <p class="subtle-text mb-0"
-                            ng-bind-html="results.purchaseOrders.length || 'Nenhum' + ' item' + (results.purchaseOrders.length !== 1 ? 's' : '') + ' encontrado'">
+                        <p class="subtle-text mb-0" ng-if="searchText.length > 0"
+                            ng-bind-html="results.purchaseOrders.length !== 0 ? (results.purchaseOrders.length + ' itens encontrados') : 'Nenhum item encontrado'">
                         </p>
                     </div>
 
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item three-column-list" ng-repeat="order in results.purchaseOrders">
-                            <p class="order-ID mb-0">#{{ order.OrderID }}</p>
+                            <p class="order-ID mb-0" ng-bind="'#' + order.PurchaseOrderID"></p>
                             <p class="mb-0">{{ order.MaterialName }}</p>
                             <p class="mb-0">Qtd: {{ order.Quantity }} pç</p>
                         </li>
@@ -119,16 +119,16 @@
                     <!-- Card header -->
                     <div class="card-header">
                         <p class="card-title mb-0">Produtos</p>
-                        <p class="subtle-text mb-0"
-                            ng-bind-html="results.products.length || 'Nenhum' + ' item' + (results.products.length !== 1 ? 's' : '') + ' encontrado'">
+                        <p class="subtle-text mb-0" ng-if="searchText.length > 0"
+                            ng-bind-html="results.products.length !== 0 ? (results.products.length + ' itens encontrados') : 'Nenhum item encontrado'">
                         </p>
                     </div>
 
                     <!-- Item list -->
-                    <ul class="list-group list-group-flush" ng-repeat="product in results.products">
-                        <li class="list-group-item two-column-list">
-                            <p class="order-ID mb-0">#{{ product.ProductID }}</p>
-                            <p class="mb-0">{{ product.ProductName }}</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item two-column-list" ng-repeat="product in results.products">
+                            <p class="order-ID mb-0">#{{ product.MaterialID }}</p>
+                            <p class="mb-0">{{ product.MaterialName }}</p>
                         </li>
                         <li class="list-group-item one-column-list" ng-if="results.products.length === 0">
                             <p class="subtle-text mb-0">Nenhum item encontrado</p>
@@ -144,17 +144,19 @@
                     <!-- Card header -->
                     <div class="card-header">
                         <p class="card-title mb-0">Equipamentos</p>
-                        <p class="subtle-text mb-0" ng-bind-html="results.equipments.length || 'Nenhum' + ' item' + (results.equipments.length !== 1 ? 's' : '') + ' encontrado'"></p>
+                        <p class="subtle-text mb-0" ng-if="searchText.length > 0"
+                            ng-bind-html="results.equipments.length !== 0 ? (results.equipments.length + ' itens encontrados') : 'Nenhum item encontrado'">
+                        </p>
                     </div>
 
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item one-column-list" ng-if="equipments.length === 0">
-                            <p class="subtle-text mb-0">Nenhum item encontrado</p>
-                        </li>
-                        <li class="list-group-item two-column-list" ng-repeat="equipment in equipments">
+                        <li class="list-group-item two-column-list" ng-repeat="equipment in results.equipments">
                             <p class="order-ID mb-0">#{{ equipment.EquipmentID }}</p>
                             <p class="mb-0">{{ equipment.EquipmentName }}</p>
+                        </li>
+                        <li class="list-group-item one-column-list" ng-if="results.equipments.length === 0">
+                            <p class="subtle-text mb-0">Nenhum item encontrado</p>
                         </li>
                     </ul>
                 </div>
@@ -167,8 +169,8 @@
                     <!-- Card header -->
                     <div class="card-header">
                         <p class="card-title mb-0">Mão de Obra</p>
-                        <p class="subtle-text mb-0"
-                            ng-bind-html="results.workforce.length || 'Nenhum' + ' item' + (results.workforce.length !== 1 ? 's' : '') + ' encontrado'">
+                        <p class="subtle-text mb-0" ng-if="searchText.length > 0"
+                            ng-bind-html="results.workforce.length !== 0 ? (results.workforce.length + ' itens encontrados') : 'Nenhum item encontrado'">
                         </p>
                     </div>
 
