@@ -3,6 +3,10 @@ import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { normalizeData } from './controllers/searchController';
+import swaggerUi from 'swagger-ui-express';
+import yaml from 'yamljs';
+
+const swaggerSpecs = yaml.load('./swagger-definition.yaml');
 
 // Create an instance of the Express application
 const app = express();
@@ -17,6 +21,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 app.use(express.static(path.join(__dirname, '../layout')));
 app.use(express.static(path.join(__dirname, './controllers')));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Define a route for handling requests to the root path ('/')
 app.get('/', (req, res) => {

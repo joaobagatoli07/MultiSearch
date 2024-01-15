@@ -1,0 +1,25 @@
+openapi: 3.0.0
+info:
+  title: "MultiSearch API"
+  version: "1.0.0"
+  description: "Query service that receives a string with the searched text and returns with the objects found in the json files"
+servers:
+  - url: "http://localhost:3000"
+paths:
+  /api/search:
+    post:
+      summary: "Search for data"
+      tags:
+        - "Search"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                text:
+                  type: "string"
+      responses:
+        "200":
+          description: "Successful response"
