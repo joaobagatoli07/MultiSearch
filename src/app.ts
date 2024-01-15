@@ -6,6 +6,7 @@ import { normalizeData } from './controllers/searchController';
 import swaggerUi from 'swagger-ui-express';
 import yaml from 'yamljs';
 
+// Load Swagger/OpenAPI specification from a YAML file
 const swaggerSpecs = yaml.load('./swagger-definition.yaml');
 
 // Create an instance of the Express application
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname)));
 app.use(express.static(path.join(__dirname, '../layout')));
 app.use(express.static(path.join(__dirname, './controllers')));
 
+// Set up Swagger documentation route
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Define a route for handling requests to the root path ('/')

@@ -64,6 +64,7 @@
     border-color: transparent;
 }
 
+/* Aligns the items of the list in 3 columns */
 .grid-item {
     display: grid;
     grid-template-columns: auto 1fr auto; 
@@ -71,6 +72,7 @@
     align-items: center; 
 }
 
+/* Aligns the items of the list in 2 columns */
 .grid-item-double-column {
     display: grid;
     grid-template-columns: auto 1fr; 
@@ -78,7 +80,8 @@
     align-items: center; 
 }
 
-.double-column {
+/* Set a fixed width for the ID column */
+.id-column {
     width: 80px;
     margin-right: 10px; 
 }
@@ -94,99 +97,97 @@
 /* Mobile devices */
 @media screen and (min-width: 320px) and (max-width: 480px) {
 
-    /* Styles for header and footer sections */
+    /* Change the size of the header and footer sections */
     .common-section {
         height: 8vh;
     }
 
-    /* Search field size */
+    /* Change the search field size */
     .search-field {
         width: 70%;
     }
 
-    /* Size of the div that houses the number of results found text */
+    /* Change the size of the div that houses the number of results found text */
     #number-results-found {
         width: 70% !important;
     }
 
-    /* Card size */
+    /* Change the card size */
     .card {
         width: 19rem;
     }
 
-    /* Card header styling */
+    /* Change the layout of the header information in the card to block */
     .card-header {
         display: block;
     }
 
+    /* Change the layout of the item list to a single column */
     .grid-item {
         grid-template-columns: 1fr;
         row-gap: 0;
-    }
-
-    .grid-item-double-column {
-        flex-direction: column; 
-    }
-
-    .double-column {
-        width: auto;
-        margin-right: 0; 
     }
 }
 
 /* iPads, Tablets */
 @media screen and (min-width: 481px) and (max-width: 768px) {
 
-    /* Styles for header and footer sections */
+    /* Change the size of the header and footer sections */
     .common-section {
         height: 8vh;
     }
 
-    /* Search field size */
+    /* Change the search field size */
     .search-field {
         width: 50%;
     }
 
-    /* Size of the div that houses the number of results found text */
+    /* Change the size of the div that houses the number of results found text */
     #number-results-found {
         width: 50% !important;
     }
 
-    /* Card size */
+    /* Change the card size */
     .card {
         width: 21rem;
     }
 
-    /* Card header styling */
+    /* Change the layout of the header information in the card to block */
     .card-header {
         display: block;
+    }
+
+    /* Change the layout of the item list to a single column */
+    .grid-item {
+        grid-template-columns: 1fr;
+        row-gap: 0;
     }
 }
 
 /* Small screens, laptops */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
 
-    /* Styles for header and footer sections */
+    /* Change the size of the header and footer sections */
     .common-section {
         height: 9vh;
     }
 
-    /* Search field size */
+    /* Change the search field size */
     .search-field {
         width: 40%;
     }
 
-    /* Size of the div that houses the number of results found text */
+    /* Change the size of the div that houses the number of results found text */
     #number-results-found {
         width: 40% !important;
     }
 
-    /* Card size */
+    /* Change the card size */
     .card {
         width: 22rem;
     }
 
-    /* Card header styling */
+    /* Change the layout of the header information in the card to block */
     .card-header {
         display: block;
     }

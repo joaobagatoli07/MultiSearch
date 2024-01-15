@@ -31,8 +31,10 @@
 
 <body>
 
+    <!-- Header Section -->
     <header class="common-section"></header>
 
+    <!-- Main Section -->
     <!-- Align content in the center -->
     <main class="d-flex align-items-center">
 
@@ -127,8 +129,8 @@
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item grid-item-double-column" ng-repeat="product in results.products">
-                            <div class="d-flex align-items-center">
-                                <p class="order-ID mb-0 double-column">#{{ product.MaterialID }}</p>
+                            <div class="d-block d-sm-flex align-items-sm-center">
+                                <p class="order-ID mb-0 id-column">#{{ product.MaterialID }}</p>
                                 <p class="mb-0">{{ product.MaterialName }}</p>
                             </div>
                         </li>
@@ -154,8 +156,8 @@
                     <!-- Item list -->
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item grid-item-double-column" ng-repeat="equipment in results.equipments">
-                            <div class="d-flex align-items-center">
-                                <p class="order-ID mb-0 double-column">#{{ equipment.EquipmentID }}</p>
+                            <div class="d-block d-sm-flex align-items-sm-center">
+                                <p class="order-ID mb-0 id-column">#{{ equipment.EquipmentID }}</p>
                                 <p class="mb-0">{{ equipment.EquipmentName }}</p>
                             </div>
                         </li>
@@ -195,6 +197,7 @@
         </div>
     </main>
 
+    <!-- Footer Section -->
     <footer class="common-section"></footer>
 
     <!-- Link to Bootstrap JavaScript -->

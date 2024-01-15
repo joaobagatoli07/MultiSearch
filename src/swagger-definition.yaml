@@ -1,16 +1,23 @@
+# OpenAPI version 3.0.0
 openapi: 3.0.0
+
+# Information about the API
 info:
   title: "MultiSearch API"
   version: "1.0.0"
   description: "Query service that receives a string with the searched text and returns with the objects found in the json files"
+
+# Servers where the API is hosted
 servers:
   - url: "http://localhost:3000"
+
+# Paths define the available endpoints in the API
 paths:
   /api/search:
     post:
-      summary: "Search for data"
+      summary: "Search for data" # Short description of the endpoint's purpose
       tags:
-        - "Search"
+        - "Search" # Categorizes the endpoint under the "Search" tag
       requestBody:
         required: true
         content:
@@ -22,4 +29,4 @@ paths:
                   type: "string"
       responses:
         "200":
-          description: "Successful response"
+          description: "Successful response" # Response for a successful request
